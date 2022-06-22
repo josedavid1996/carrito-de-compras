@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
 import { CardCarrito } from '../components/CardCarrito';
 import { appContext } from '../context';
-import { carItems } from '../data/product';
 import { getTotal } from '../helpers';
 
 export const CarritoPage = () => {
-  const totalCard = getTotal(carItems);
+  const { state } = useContext(appContext);
+  const totalCard = getTotal(state);
   return (
     <>
       <h1 className="font-mont text-center text-3xl my-5 font-bold">
         Carrito de compra
       </h1>
       <div className="m-5 container mx-auto">
-        {carItems.map((product) => {
+        {state.map((product) => {
           return <CardCarrito key={product.id} {...product} />;
         })}
         {totalCard && (

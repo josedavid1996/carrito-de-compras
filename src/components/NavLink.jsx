@@ -5,6 +5,7 @@ import { carItems } from '../data/product';
 
 export const NavLink = () => {
   const [activeMenu, setActiveMenu] = useState(false);
+  const { state } = useContext(appContext);
 
   const handleClick = () => {
     setActiveMenu(!activeMenu);
@@ -12,7 +13,7 @@ export const NavLink = () => {
   const NumberCard = () => {
     return (
       <span className="flex justify-center items-center absolute -top-2 left-3 w-5 h-5 bg-white text-green-500 rounded-full text-xs">
-        {carItems.length}
+        {state?.length}
       </span>
     );
   };
