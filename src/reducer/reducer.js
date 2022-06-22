@@ -9,7 +9,7 @@ export const reducer = (state, action) => {
 
       const cardItem = carItems.find((item) => item.id === newProduct.id);
       return !cardItem
-        ? state.push({ ...newProduct, quantity: 1 }) //preguntar
+        ? carItems.push({ ...newProduct, quantity: 1 }) //preguntar
         : (cardItem.quantity = cardItem.quantity + 1);
 
     case 'remove':
